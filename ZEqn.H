@@ -2,8 +2,9 @@
     fvScalarMatrix ZEqn
     (
         fvm::ddt(rho, Z) + fvm::div(phi, Z)
-      - fvm::laplacian(turbulence->alphaEff(), Z)
+      - fvm::laplacian(turbulence->muEff(), Z)
      == fvOptions(rho, Z)
+      + parcels.SYi(0, Z) // Source term for YFuel
     );
 
     ZEqn.relax();

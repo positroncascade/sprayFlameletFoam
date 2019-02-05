@@ -25,7 +25,7 @@ Application
     sprayFlameletFoam
 
 Description
-	Modeling spray combustion using the flamelet approach.
+    Modeling spray combustion using the flamelet approach.
 
 \*---------------------------------------------------------------------------*/
 
@@ -76,6 +76,7 @@ int main(int argc, char *argv[])
         while (pimple.loop())
         {
             #include "UEqn.H"
+            #include "ZEqn.H"
 
             while (pimple.correct())
             {

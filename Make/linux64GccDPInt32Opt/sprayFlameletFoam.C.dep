@@ -6,6 +6,7 @@ $(WM_PROJECT_DIR)/src/lagrangian/spray/lnInclude/basicSprayCloud.H \
 $(WM_PROJECT_DIR)/src/thermophysicalModels/reactionThermo/lnInclude/psiReactionThermo.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControl.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptions.H \
+lookupTable.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCaseLists.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H \
@@ -1033,6 +1034,7 @@ $(WM_PROJECT_DIR)/src/lagrangian/spray/lnInclude/basicSprayCloud.H :
 $(WM_PROJECT_DIR)/src/thermophysicalModels/reactionThermo/lnInclude/psiReactionThermo.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControl.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptions.H :
+lookupTable.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCaseLists.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H :

@@ -108,6 +108,6 @@ volScalarField K("K", 0.5*magSqr(U));
 #include "createClouds.H"
 #include "createFvOptions.H"
 
-const volScalarField& T = thermo.T();
+volScalarField& T = thermo.T();
 const volScalarField& psi = thermo.psi();
 // const label inertIndex(composition.species()[inertSpecie]);

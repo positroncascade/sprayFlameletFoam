@@ -6,7 +6,6 @@ $(WM_PROJECT_DIR)/src/lagrangian/spray/lnInclude/basicSprayCloud.H \
 $(WM_PROJECT_DIR)/src/thermophysicalModels/reactionThermo/lnInclude/psiReactionThermo.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControl.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptions.H \
-lookupTable.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCaseLists.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H \
@@ -22,6 +21,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/setDeltaT.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/rhoEqn.H \
 UEqn.H \
 ZEqn.H \
+lookupTable.H \
 pEqn.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/parRun.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Time.H \
@@ -1034,7 +1034,6 @@ $(WM_PROJECT_DIR)/src/lagrangian/spray/lnInclude/basicSprayCloud.H :
 $(WM_PROJECT_DIR)/src/thermophysicalModels/reactionThermo/lnInclude/psiReactionThermo.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControl.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptions.H :
-lookupTable.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCaseLists.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H :
@@ -1050,6 +1049,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/setDeltaT.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/rhoEqn.H :
 UEqn.H :
 ZEqn.H :
+lookupTable.H :
 pEqn.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/parRun.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Time.H :

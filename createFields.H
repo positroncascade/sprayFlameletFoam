@@ -21,6 +21,9 @@ thermo.validate(args.executable(), "h", "e");
 
 SLGThermo slgThermo(mesh, thermo);
 
+basicSpecieMixture& composition = thermo.composition();
+PtrList<volScalarField>& Y = composition.Y();
+
 volScalarField& p = thermo.p();
 
 volScalarField rho

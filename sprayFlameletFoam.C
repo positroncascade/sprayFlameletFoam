@@ -36,8 +36,6 @@ Description
 #include "pimpleControl.H"
 #include "fvOptions.H"
 
-#include "lookupTable.H"
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 int main(int argc, char *argv[])
@@ -79,7 +77,7 @@ int main(int argc, char *argv[])
         {
             #include "UEqn.H"
             #include "ZEqn.H"
-            lookupTable(Z, T);
+            #include "lookupTable.H"
 
             while (pimple.correct())
             {

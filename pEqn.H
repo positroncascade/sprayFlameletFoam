@@ -3,6 +3,7 @@ rho = max(rho, rhoMin);
 rho = min(rho, rhoMax);
 rho.relax();
 
+// Part 1
 thermo.rho() = thermo.rho() - psi*p;
 
 volScalarField rAU(1.0/UEqn.A());
@@ -88,6 +89,7 @@ else
     }
 }
 
+// Part 2
 thermo.rho() = thermo.rho() + psi*p;
 
 #include "rhoEqn.H"

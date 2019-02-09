@@ -107,6 +107,13 @@ volScalarField dpdt
 Info<< "Creating field kinetic energy K\n" << endl;
 volScalarField K("K", 0.5*magSqr(U));
 
+multivariateSurfaceInterpolationScheme<scalar>::fieldTable fields;
+forAll(Y, i)
+{
+    fields.add(Y[i]);
+}
+fields.add(thermo.he());
+
 #include "createMRF.H"
 #include "createClouds.H"
 #include "createFvOptions.H"

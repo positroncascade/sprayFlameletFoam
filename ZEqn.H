@@ -1,20 +1,37 @@
-{
-    fvScalarMatrix ZEqn
+tmp<fv::convectionScheme<scalar>> mvConvection
+(
+    fv::convectionScheme<scalar>::New
     (
-        fvm::ddt(rho, Z) + fvm::div(phi, Z)
-      - fvm::laplacian(turbulence->muEff(), Z)
-     == fvOptions(rho, Z)
-      + parcels.SYi(0, Z) // Source term for YFuel
+       mesh,
+       fields,
+       phi,
+       mesh.divScheme("div(phi,Yi_h)")
+    )
+);
+
+{
+    const int kIndex = 2;
+    volScalarField& tY = Y[kIndex];
+    fvScalarMatrix YEqn
+    (
+        fvm::ddt(rho, tY) + mvConvection->fvmDiv(phi, tY)
+      - fvm::laplacian(turbulence->alphaEff(), tY)
+     ==
+        fvOptions(rho, tY)
+      + parcels.SYi(kIndex, tY)
     );
 
-    ZEqn.relax();
+    YEqn.relax();
+    
+    fvOptions.constrain(YEqn);
 
-    fvOptions.constrain(ZEqn);
+    YEqn.solve(mesh.solver("Yi"));
 
-    ZEqn.solve();
+    fvOptions.correct(tY);
 
-    fvOptions.correct(Z);
+    tY.max(0.0);
 
+    Z = scalar(1) - tY/0.766;
     Info<< "Z min/max   " << min(Z).value() << ", "
         << max(Z).value() << endl;
 }

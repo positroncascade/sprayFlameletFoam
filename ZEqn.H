@@ -10,15 +10,14 @@ tmp<fv::convectionScheme<scalar>> mvConvection
 );
 
 {
-    const int kIndex = 2;
-    volScalarField& tY = Y[kIndex];
+    volScalarField& inY = Y[inertIndex];
     fvScalarMatrix YEqn
     (
-        fvm::ddt(rho, tY) + mvConvection->fvmDiv(phi, tY)
-      - fvm::laplacian(turbulence->alphaEff(), tY)
+        fvm::ddt(rho, inY) + mvConvection->fvmDiv(phi, inY)
+      - fvm::laplacian(turbulence->muEff(), inY)
      ==
-        fvOptions(rho, tY)
-      + parcels.SYi(kIndex, tY)
+        fvOptions(rho, inY)
+      + parcels.SYi(inertIndex, inY)
     );
 
     YEqn.relax();
@@ -27,11 +26,11 @@ tmp<fv::convectionScheme<scalar>> mvConvection
 
     YEqn.solve(mesh.solver("Yi"));
 
-    fvOptions.correct(tY);
+    fvOptions.correct(inY);
 
-    tY.max(0.0);
+    inY.max(0.0);
 
-    Z = scalar(1) - tY/0.766;
-    Info<< "Z min/max   " << min(Z).value() << ", "
+    Z = scalar(1) - inY/0.766;
+    Info<< "Z min/max : " << min(Z).value() << ", "
         << max(Z).value() << endl;
 }

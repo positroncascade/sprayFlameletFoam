@@ -31,6 +31,6 @@
     }
     he = thermo.he(p,T);
     thermo.correct();
-    Info<< "T gas min/max   " << min(T).value() << ", "
+    Info<< "T gas min/max : " << min(T).value() << ", "
         << max(T).value() << endl;
 }

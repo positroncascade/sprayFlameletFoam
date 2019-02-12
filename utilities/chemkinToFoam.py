@@ -56,6 +56,7 @@ with open('reactions','w+') as f:
     f.write('\t\tTa\t\t\t\t3149.98;\n')
     f.write('\t}\n}')
 
+
 # Thermodynamics
 weightDict = {'C ':12, 'C':12, 'H':1, 'H ':1, 'N':14, 'N ':14, 'O':16, 'O ':16, 'HE':4, 'AR':40}
 with open('therm.dat') as f, open('thermodynamics','w+') as w:

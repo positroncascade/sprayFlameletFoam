@@ -130,4 +130,6 @@ fields.add(thermo.he());
 volScalarField& T = thermo.T();
 const volScalarField& psi = thermo.psi();
 const label inertIndex(composition.species()[inertSpecie]);
-Info<< "inertIndex: " << inertIndex << endl;
+const double Yinert0 = Y[inertIndex][0];
+Info<< "Inert index: " << inertIndex
+    << "\tYinert0: " << Yinert0 << endl;

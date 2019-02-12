@@ -10,7 +10,7 @@ EXE_INC = \
     -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
-    -IthermophysicalProperties/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/thermophysicalProperties/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/reactionThermo/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/SLGThermo/lnInclude \
     -I$(LIB_SRC)/regionModels/regionModel/lnInclude \
@@ -25,8 +25,7 @@ EXE_LIBS = \
     -llagrangianSpray \
     -lcompressibleTransportModels \
     -lfluidThermophysicalModels \
-    -L$(FOAM_USER_LIBBIN) \
-    -luserThermophysicalProperties \
+    -lthermophysicalProperties \
     -lreactionThermophysicalModels \
     -lfiniteVolume \
     -lfvOptions \

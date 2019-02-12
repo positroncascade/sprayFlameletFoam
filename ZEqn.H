@@ -30,7 +30,7 @@ tmp<fv::convectionScheme<scalar>> mvConvection
 
     inY.max(0.0);
 
-    Z = scalar(1) - inY/0.766;
+    Z = scalar(1) - inY/0.0138;
     Info<< "Z min/max : " << min(Z).value() << ", "
         << max(Z).value() << endl;
 }

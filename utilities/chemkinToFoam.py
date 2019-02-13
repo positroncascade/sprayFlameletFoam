@@ -21,9 +21,9 @@ with open('chem.inp') as f:
                 numElements += 1
     
     for line in f:
-        if 'SPECIES' in line:
+        if 'SPECIE' in line:
             break
-    for line in f: 
+    for line in f:
         line = line.strip()
         if 'END' in line:
             break
@@ -58,7 +58,7 @@ with open('reactions','w+') as f:
 
 
 # Thermodynamics
-weightDict = {'C ':12, 'C':12, 'H':1, 'H ':1, 'N':14, 'N ':14, 'O':16, 'O ':16, 'HE':4, 'AR':40}
+weightDict = {'C ':12.0, 'C':12.0, 'H':1.0, 'H ':1.0, 'N':14.0, 'N ':14.0, 'O':16.0, 'O ':16.0, 'HE':4.0, 'AR':40.0}
 with open('therm.dat') as f, open('thermodynamics','w+') as w:
     while True:
         specie = ''
@@ -66,16 +66,18 @@ with open('therm.dat') as f, open('thermodynamics','w+') as w:
         elements = []
         elemNum = []
         for line in f:
+            if line == '\n' or '!' in line:
+                continue
             line = line.strip()
             if line[-1] == '1':
                 elements.append(line[24:26])
-                elemNum.append(int(line[27:29]))
+                elemNum.append(int(float(line[26:29])))
                 if line[29] != ' ':
-                    elements.append(line[29])
-                    elemNum.append(int(line[32:34]))
+                    elements.append(line[29:31])
+                    elemNum.append(int(float(line[31:34])))
                 if line[34] != ' ':
-                    elements.append(line[34])
-                    elemNum.append(int(line[37:39]))
+                    elements.append(line[34:36])
+                    elemNum.append(int(float(line[36:39])))
                 molWeight = 0.0
                 for i,elem in enumerate(elements):
                     molWeight+=elemNum[i]*weightDict[elem]
@@ -87,6 +89,8 @@ with open('therm.dat') as f, open('thermodynamics','w+') as w:
                 Tlow = line[-4]
                 break
         for line in f:
+            if line == '\n' or '!' in line:
+                continue
             if line[-2] != '4':
                 coeffs.append(line[0:15])
                 coeffs.append(line[15:30])
@@ -99,7 +103,7 @@ with open('therm.dat') as f, open('thermodynamics','w+') as w:
                 coeffs.append(line[30:45])
                 coeffs.append(line[45:60])
                 break
-        if specie=='':
+        if specie == '':
             break
         w.write(specie+'\n{\n\tspecie\n\t{\n\t\tmolWeight\t\t'+f'{molWeight}'+';\n\t}\n')
         w.write('\tthermodynamics\n\t{\n\t\tTlow\t\t\t'+ \
